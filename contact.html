@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>تواصل معنا - رؤية للبرمجة والتطوير</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="main.css" />
+    <link rel="stylesheet" href="contact.css" />
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="header">
+      <nav class="navbar">
+        <div class="container">
+          <div class="nav-brand">
+            <img src="logo.png" alt="رؤية" class="logo" />
+          </div>
+          <ul class="nav-menu">
+            <li><a href="index.html">الرئيسية</a></li>
+            <li><a href="about.html">من نحن</a></li>
+            <li class="dropdown">
+              <a href="#services" class="dropdown-toggle"
+                >خدماتنا <i class="fas fa-chevron-down"></i
+              ></a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a href="services/web-development.html">تطوير المواقع الإلكترونية</a>
+                </li>
+                <li><a href="services/graphic.html">التصميم الجرافيكي</a></li>
+                <li><a href="services/ecommerce.html">المتاجر الإلكترونية</a></li>
+
+              </ul>
+            </li>
+
+            <li><a href="contact.html" class="active">تواصل معنا</a></li>
+          </ul>
+          <div class="nav-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="hero-background">
+        <img
+          src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80"
+          alt="تواصل معنا"
+        />
+      </div>
+      <div class="hero-overlay"></div>
+      <div class="container">
+        <div class="hero-content">
+          <div class="hero-badge">
+            <i class="fas fa-comments"></i>
+            <span>تواصل معنا</span>
+          </div>
+          <h1 class="hero-title">
+            نحن هنا <span class="highlight" style="color: white !important;">لمساعدتك</span>
+          </h1>
+          <p class="hero-description">
+            إذا كان لديك مشروع تقني أو سؤال حول خدماتنا البرمجية، ما عليك سوى مراسلتنا 
+            وسنرد عليك سريعاً بالحل المناسب لاحتياجاتك التقنية
+          </p>
+          <div class="hero-stats">
+            <div class="stat">
+              <i class="fas fa-clock"></i>
+              <span>رد سريع خلال 24 ساعة</span>
+            </div>
+            <div class="stat">
+              <i class="fas fa-code"></i>
+              <span>دعم تقني متخصص</span>
+            </div>
+            <div class="stat">
+              <i class="fas fa-map-marker-alt"></i>
+              <span>خدمة في جميع أنحاء المملكة</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-scroll">
+        <i class="fas fa-chevron-down"></i>
+      </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section class="contact-form-section">
+      <div class="container">
+        <div class="contact-wrapper">
+          <div class="form-container">
+            <div class="form-header">
+              <div class="section-badge">
+                <i class="fas fa-envelope"></i>
+                <span>أرسل رسالة</span>
+              </div>
+              <h2 class="form-title">
+                <span class="highlight">تواصل معنا</span> الآن
+              </h2>
+              <p class="form-description">
+                املأ النموذج أدناه وسنتواصل معك في أقرب وقت ممكن
+              </p>
+            </div>
+
+            <form class="contact-form" id="contactForm">
+              <div class="form-grid">
+                <div class="form-group">
+                  <label for="name">الاسم الكامل</label>
+                  <input type="text" id="name" name="name" required />
+                  <i class="fas fa-user"></i>
+                </div>
+
+                <div class="form-group">
+                  <label for="email">البريد الإلكتروني</label>
+                  <input type="email" id="email" name="email" required />
+                  <i class="fas fa-envelope"></i>
+                </div>
+
+                <div class="form-group">
+                  <label for="phone">رقم الهاتف</label>
+                  <input type="tel" id="phone" name="phone" required />
+                  <i class="fas fa-phone"></i>
+                </div>
+
+                <div class="form-group">
+                  <label for="subject">الموضوع</label>
+                  <select id="subject" name="subject" required>
+                    <option value="">اختر الموضوع</option>
+                    <option value="website">تطوير موقع إلكتروني</option>
+                    <option value="graphic-design">تصميم جرافيكي</option>
+                    <option value="ecommerce">متجر إلكتروني</option>
+                    <option value="consultation">استشارة تقنية</option>
+                    <option value="partnership">شراكة تقنية</option>
+                    <option value="maintenance">صيانة ودعم فني</option>
+                    <option value="other">أخرى</option>
+                  </select>
+                  <i class="fas fa-list"></i>
+                </div>
+              </div>
+
+              <div class="form-group full-width">
+                <label for="message">الرسالة</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows="6"
+                  placeholder="اكتب رسالتك هنا..."
+                  required
+                ></textarea>
+                <i class="fas fa-comment"></i>
+              </div>
+
+              <div class="form-actions">
+                <button type="submit" class="submit-btn">
+                  <i class="fas fa-paper-plane"></i>
+                  إرسال الرسالة
+                </button>
+              </div>
+            </form>
+          </div>
+
+          <div class="contact-info">
+            <div class="info-card">
+              <div class="info-header">
+                <h3>معلومات التواصل</h3>
+                <p>تواصل معنا عبر الوسائل التالية</p>
+              </div>
+
+              <div class="contact-methods">
+                <div class="contact-method">
+                  <div class="method-icon">
+                    <i class="fas fa-phone"></i>
+                  </div>
+                  <div class="method-info">
+                    <h4>الهاتف</h4>
+                    <p>01122881051</p>
+                  </div>
+                </div>
+
+                <div class="contact-method">
+                  <div class="method-icon">
+                    <i class="fas fa-envelope"></i>
+                  </div>
+                  <div class="method-info">
+                    <h4>البريد الإلكتروني</h4>
+                    <p>info.royaWebsolution@gmail.com</p>
+                  </div>
+                </div>
+
+                <div class="contact-method">
+                  <div class="method-icon">
+                    <i class="fab fa-whatsapp"></i>
+                  </div>
+                  <div class="method-info">
+                    <h4>واتساب</h4>
+                    <p>01122881051</p>
+                  </div>
+                </div>
+
+                <div class="contact-method">
+                  <div class="method-icon">
+                    <i class="fas fa-clock"></i>
+                  </div>
+                  <div class="method-info">
+                    <h4>ساعات العمل</h4>
+                    <p>الأحد - الخميس: 9:00 ص - 6:00 م</p>
+                    <p>الجمعة - السبت: مغلق</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="social-links">
+                <a href="#" class="social-link">
+                  <i class="fab fa-facebook"></i>
+                </a>
+                <a href="#" class="social-link">
+                  <i class="fab fa-twitter"></i>
+                </a>
+                <a href="#" class="social-link">
+                  <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="#" class="social-link">
+                  <i class="fab fa-instagram"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Branches Section -->
+    <section class="branches-section">
+      <div class="container">
+        <div class="branches-header">
+          <div class="section-badge">
+            <i class="fas fa-building"></i>
+            <span>فروعنا</span>
+          </div>
+          <h2 class="branches-title">
+            <span class="highlight">مكاتبنا</span> في المملكة
+          </h2>
+          <p class="branches-description">
+            نخدم جميع أنحاء المملكة العربية السعودية وحلولنا البرمجية تواكب أحدث
+            التقنيات العالمية ومعايير الجودة في تطوير البرمجيات
+          </p>
+        </div>
+
+        <div class="branches-grid">
+          <div class="branch-card main-branch">
+            <div class="branch-badge">الفرع الرئيسي</div>
+            <div class="branch-icon">
+              <i class="fas fa-building"></i>
+            </div>
+            <h3>المقر الرئيسي</h3>
+            <p class="branch-description">
+              نخدم جميع أنحاء المملكة العربية السعودية وحلولنا البرمجية تواكب أحدث
+              التقنيات العالمية ومعايير الجودة في تطوير البرمجيات
+            </p>
+
+            <div class="branch-info">
+              <div class="info-item">
+                <i class="fas fa-phone"></i>
+                <div>
+                  <span>01122881051</span>
+                </div>
+              </div>
+
+              <div class="info-item">
+                <i class="fas fa-envelope"></i>
+                <span>info.royaWebsolution@gmail.com</span>
+              </div>
+
+              <div class="info-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>المملكة العربية السعودية</span>
+              </div>
+            </div>
+
+            <div class="branch-actions">
+              <a href="tel:01122881051" class="btn-primary">
+                <i class="fas fa-phone"></i>
+                اتصل الآن
+              </a>
+              <a href="mailto:info.royaWebsolution@gmail.com" class="btn-outline">
+                <i class="fas fa-envelope"></i>
+                راسلنا
+              </a>
+            </div>
+          </div>
+
+          <div class="branch-card">
+            <div class="branch-icon">
+              <i class="fas fa-map-marker-alt"></i>
+            </div>
+            <h3>فرع إضافي</h3>
+            <p class="branch-description">
+              حلولنا البرمجية تواكب أحدث التقنيات العالمية ومعايير الجودة
+              في تطوير البرمجيات
+            </p>
+
+            <div class="branch-info">
+              <div class="info-item">
+                <i class="fas fa-phone"></i>
+                <span>01122881051</span>
+              </div>
+
+              <div class="info-item">
+                <i class="fas fa-envelope"></i>
+                <span>info.royaWebsolution@gmail.com</span>
+              </div>
+            </div>
+
+            <div class="branch-actions">
+              <a href="tel:01122881051" class="btn-primary">
+                <i class="fas fa-phone"></i>
+                اتصل الآن
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+      <div class="container">
+        <div class="faq-header">
+          <div class="section-badge">
+            <i class="fas fa-question-circle"></i>
+            <span>الأسئلة الشائعة</span>
+          </div>
+          <h2 class="faq-title">أسئلة <span class="highlight">شائعة</span></h2>
+          <p class="faq-description">
+            إجابات على أكثر الأسئلة شيوعاً حول خدماتنا البرمجية
+          </p>
+        </div>
+
+        <div class="faq-container">
+          <div class="faq-item">
+            <div class="faq-question">
+              <h3>ما هي مدة تطوير الموقع أو التطبيق؟</h3>
+              <i class="fas fa-plus"></i>
+            </div>
+            <div class="faq-answer">
+              <p>
+                تختلف مدة التطوير حسب حجم وتعقيد المشروع، ولكن عادة ما تتراوح 
+                بين 2-8 أسابيع للمواقع البسيطة و2-6 أشهر للتطبيقات المعقدة.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question">
+              <h3>هل تقدمون ضمان على أعمالكم؟</h3>
+              <i class="fas fa-plus"></i>
+            </div>
+            <div class="faq-answer">
+              <p>
+                نعم، نقدم ضمان على جميع مشاريعنا البرمجية مع صيانة ودعم فني
+                مجاني لمدة 6 أشهر بعد تسليم المشروع.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question">
+              <h3>ما هي تكلفة تطوير المشاريع البرمجية؟</h3>
+              <i class="fas fa-plus"></i>
+            </div>
+            <div class="faq-answer">
+              <p>
+                تختلف التكلفة حسب نوع وحجم المشروع والتقنيات المستخدمة. يمكنك 
+                التواصل معنا للحصول على عرض سعر مخصص لمشروعك التقني.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question">
+              <h3>هل تقدمون استشارات تقنية مجانية؟</h3>
+              <i class="fas fa-plus"></i>
+            </div>
+            <div class="faq-answer">
+              <p>
+                نعم، نقدم استشارة تقنية أولية مجانية لمدة 30 دقيقة لمناقشة
+                مشروعك التقني وتحديد أفضل الحلول البرمجية المناسبة.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question">
+              <h3>هل تخدمون جميع أنحاء المملكة؟</h3>
+              <i class="fas fa-plus"></i>
+            </div>
+            <div class="faq-answer">
+              <p>
+                نعم، نقدم خدماتنا البرمجية في جميع أنحاء المملكة العربية السعودية 
+                ويمكننا العمل عن بُعد أو تقديم الدعم الفني حسب الحاجة.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+      <div class="container">
+        <div class="cta-content">
+          <div class="cta-text">
+            <h2>هل أنت مستعد لبدء مشروعك التقني؟</h2>
+            <p>تواصل معنا الآن واحصل على استشارة تقنية مجانية لمشروعك البرمجي</p>
+          </div>
+          <div class="cta-actions">
+            <a href="tel:01122881051" class="btn-primary">
+              <i class="fas fa-phone"></i>
+              اتصل الآن
+            </a>
+            <a href="https://wa.me/201122881051" class="btn-whatsapp">
+              <i class="fab fa-whatsapp"></i>
+              واتساب
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <img src="logo.png" alt="رؤية" class="footer-logo" />
+            <p>شركة رؤية للبرمجة والتطوير - حلول برمجية متطورة ومتخصصة</p>
+            <div class="social-links">
+              <a href="#"><i class="fab fa-facebook"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-linkedin"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+          </div>
+          <div class="footer-section">
+            <h4>أهم الروابط</h4>
+            <ul>
+              <li><a href="index.html">الرئيسية</a></li>
+              <li><a href="about.html">من نحن</a></li>
+              <li><a href="index.html#services">خدماتنا البرمجية</a></li>
+              <li><a href="index.html#opportunities">أحدث المشاريع</a></li>
+              <li><a href="index.html#sectors">التقنيات المستخدمة</a></li>
+              <li><a href="contact.html">تواصل معنا</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h4>أحدث المقالات</h4>
+            <div class="footer-article">
+              <h5>شركة رؤية وأحدث التقنيات في تطوير المواقع</h5>
+              <span>15/1/2025</span>
+            </div>
+            <div class="footer-article">
+              <h5>أهمية التصميم المتجاوب في نجاح المتاجر الإلكترونية</h5>
+              <span>10/1/2025</span>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2025 Ruya Development. Privacy Policy</p>
+          <p>تابعونا على وسائل التواصل الاجتماعي</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="contact.js"></script>
+    <script src="navbar.js"></script>
+  </body>
+</html>

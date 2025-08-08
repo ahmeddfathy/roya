@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>رؤية - خدمات البرمجة والتطوير</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="main.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="header">
+      <nav class="navbar">
+        <div class="container">
+          <div class="nav-brand">
+            <img src="logo.png" alt="رؤية" class="logo" />
+          </div>
+          <ul class="nav-menu">
+            <li><a href="#home">الرئيسية</a></li>
+            <li><a href="about.html">من نحن</a></li>
+            <li class="dropdown">
+              <a href="#services" class="dropdown-toggle"
+                >خدماتنا <i class="fas fa-chevron-down"></i
+              ></a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a href="services/web-development.html">تطوير المواقع الإلكترونية</a>
+                </li>
+                <li><a href="services/graphic.html">التصميم الجرافيكي</a></li>
+                <li><a href="services/ecommerce.html">المتاجر الإلكترونية</a></li>
+
+              </ul>
+            </li>
+            <li><a href="contact.html">تواصل معنا</a></li>
+          </ul>
+          <div class="nav-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Hero Carousel Section -->
+    <section id="home" class="hero-carousel">
+      <div class="carousel-container">
+        <!-- Slide 1 -->
+        <div class="carousel-slide active">
+          <div class="slide-background">
+            <img src="images/hero1.jpg" alt="فريق عمل سعودي" />
+          </div>
+          <div class="slide-overlay"></div>
+          <div class="container">
+            <div class="slide-content">
+              <h1 class="slide-title">
+                مطورين متخصصين
+                <br />وفريق محترف
+              </h1>
+              <p class="slide-subtitle">
+                فريق محترف في تطوير المواقع والتطبيقات
+              </p>
+              <div class="slide-buttons">
+                <a href="#about" class="btn btn-primary">
+                  <i class="fas fa-users"></i>
+                  تعرف على فريقنا
+                </a>
+                <a href="#services" class="btn btn-secondary">
+                  <i class="fas fa-code"></i>
+                  خدماتنا البرمجية
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 2 -->
+
+        <div class="carousel-slide">
+          <div class="slide-background">
+            <img src="images/hero-2.jpg" alt="مصانع سعودية" />
+          </div>
+          <div class="slide-overlay"></div>
+          <div class="container">
+            <div class="slide-content">
+              <h1 class="slide-title">
+                اطلق مشروعك الرقمي
+                <br />بأحدث التقنيات
+              </h1>
+              <p class="slide-subtitle">
+                حلول تقنية متطورة للمواقع والمتاجر الإلكترونية
+              </p>
+              <div class="slide-buttons">
+                <a href="#projects" class="btn btn-primary">
+                  <i class="fas fa-laptop-code"></i>
+                  أحدث المشاريع
+                </a>
+                <a href="#contact" class="btn btn-secondary">
+                  <i class="fas fa-rocket"></i>
+                  ابدأ مشروعك
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="carousel-slide">
+          <div class="slide-background">
+            <img src="images/hero-3.jpg" alt="رجل أعمال سعودي" />
+          </div>
+          <div class="slide-overlay"></div>
+          <div class="container">
+            <div class="slide-content">
+              <h1 class="slide-title">
+                حلول برمجية مبتكرة
+                <br />بأحدث المعايير
+              </h1>
+              <p class="slide-subtitle">
+                حلول متخصصة تواكب أحدث التقنيات العالمية
+              </p>
+              <div class="slide-buttons">
+                <a href="#contact" class="btn btn-primary">
+                  <i class="fas fa-code"></i>
+                  اطلب استشارة تقنية
+                </a>
+                <a href="#services" class="btn btn-secondary">
+                  <i class="fas fa-play"></i>
+                  ابدأ مشروعك الآن
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 4 -->
+        <div class="carousel-slide">
+          <div class="slide-background">
+            <img src="images/download (18).jpeg" alt="رجال أعمال سعوديين" />
+          </div>
+          <div class="slide-overlay"></div>
+          <div class="container">
+            <div class="slide-content">
+              <h1 class="slide-title">
+                شراكة نجاح رقمية
+                <br />+500 مشروع منجز
+              </h1>
+              <p class="slide-subtitle">
+                انضم لمئات العملاء الناجحين مع حلولنا المتطورة
+              </p>
+              <div class="slide-buttons">
+                <a href="#contact" class="btn btn-primary">
+                  <i class="fas fa-phone"></i>
+                  تواصل معنا
+                </a>
+                <a href="#testimonials" class="btn btn-secondary">
+                  <i class="fas fa-star"></i>
+                  آراء العملاء
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Carousel Navigation -->
+      <div class="carousel-nav">
+        <button class="carousel-btn prev-btn">
+          <i class="fas fa-chevron-right"></i>
+        </button>
+        <button class="carousel-btn next-btn">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+      </div>
+
+      <!-- Carousel Indicators -->
+      <div class="carousel-indicators">
+        <button class="indicator active" data-slide="0"></button>
+        <button class="indicator" data-slide="1"></button>
+        <button class="indicator" data-slide="2"></button>
+        <button class="indicator" data-slide="3"></button>
+      </div>
+
+      <!-- Scroll Down Arrow -->
+      <div class="hero-scroll">
+        <i class="fas fa-chevron-down"></i>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+      <div class="container">
+        <div class="about-wrapper">
+          <div class="about-content">
+            <div class="section-badge">
+              <i class="fas fa-building"></i>
+              <span>من نحن</span>
+            </div>
+            <h2 class="about-title">
+              شركة <span class="highlight-text">رؤية</span> للبرمجة والتطوير
+            </h2>
+            <p class="about-description">
+              نحن شركة رائدة في مجال تطوير المواقع الإلكترونية والمتاجر الإلكترونية
+              وتطبيقات الجوال في المملكة العربية السعودية. نعتمد على فريق من المطورين
+              والمبرمجين المتخصصين ذوي الخبرة الواسعة في مجال
+              التطوير والبرمجة.
+            </p>
+
+            <div class="about-features">
+              <div class="feature-item">
+                <div class="feature-icon">
+                  <i class="fas fa-code"></i>
+                </div>
+                <div class="feature-content">
+                  <h4>حلول برمجية متطورة</h4>
+                  <p>تطوير بأحدث التقنيات العالمية</p>
+                </div>
+              </div>
+              <div class="feature-item">
+                <div class="feature-icon">
+                  <i class="fas fa-users-cog"></i>
+                </div>
+                <div class="feature-content">
+                  <h4>فريق مطورين متخصص</h4>
+                  <p>مبرمجين ومطورين محترفين</p>
+                </div>
+              </div>
+              <div class="feature-item">
+                <div class="feature-icon">
+                  <i class="fas fa-chart-line"></i>
+                </div>
+                <div class="feature-content">
+                  <h4>خبرة واسعة</h4>
+                  <p>تميز وإبداع في تطوير البرمجيات</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="about-cta">
+              <a href="#contact" class="btn btn-primary">
+                <i class="fas fa-phone"></i>
+                تواصل معنا الآن
+              </a>
+                              <a href="#services" class="btn btn-outline">
+                <i class="fas fa-arrow-left"></i>
+                اكتشف خدماتنا البرمجية
+              </a>
+            </div>
+          </div>
+
+          <div class="about-visual">
+            <div class="about-image-container">
+              <img
+                src="images/hero1.jpg"
+                alt="فريق العمل السعودي"
+                class="main-image"
+              />
+              <div class="floating-card">
+                <div class="card-icon">
+                  <i class="fas fa-trophy"></i>
+                </div>
+                <div class="card-content">
+                  <h4>الأفضل</h4>
+                  <p>في السوق السعودي</p>
+                </div>
+              </div>
+            </div>
+            <div class="decorative-elements">
+              <div class="element element-1"></div>
+              <div class="element element-2"></div>
+              <div class="element element-3"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Stats Section -->
+    <section class="stats">
+      <div class="container">
+        <div class="stats-grid">
+          <div class="stat-item">
+            <div class="stat-icon">
+              <i class="fas fa-laptop-code"></i>
+            </div>
+            <div class="stat-number" data-count="500">0</div>
+            <div class="stat-label">مشروع منجز</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-icon">
+              <i class="fas fa-paint-brush"></i>
+            </div>
+            <div class="stat-number" data-count="200">0</div>
+            <div class="stat-label">تصميم جرافيكي</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-icon">
+              <i class="fas fa-users"></i>
+            </div>
+            <div class="stat-number" data-count="350">0</div>
+            <div class="stat-label">عميل راضي</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-icon">
+              <i class="fas fa-shopping-cart"></i>
+            </div>
+            <div class="stat-number" data-count="80">0</div>
+            <div class="stat-label">متجر إلكتروني</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services-section">
+      <div class="container">
+        <div class="services-header">
+          <div class="services-intro">
+            <div class="section-badge">
+              <i class="fas fa-cogs"></i>
+              <span>خدماتنا</span>
+            </div>
+            <h2 class="services-title">
+              ماذا <span class="highlight-text">نقدم</span> لك؟
+            </h2>
+            <p class="services-description">
+              نقدم مجموعة شاملة من الخدمات المتخصصة في مجال تطوير المواقع
+              والمتاجر الإلكترونية وتطبيقات الجوال
+            </p>
+          </div>
+          <div class="services-image">
+            <img src="images/hero-3.jpg" alt="خدمات البرمجة والتطوير" />
+          </div>
+        </div>
+
+        <div class="services-grid">
+          <div class="service-card">
+            <div class="service-icon">
+              <i class="fas fa-globe"></i>
+            </div>
+            <h3>تطوير المواقع الإلكترونية</h3>
+            <p>
+              تطوير مواقع إلكترونية احترافية ومتجاوبة باستخدام أحدث التقنيات
+              وأفضل الممارسات في التطوير
+            </p>
+            <a href="services/web-development.html" class="service-cta">
+              <span>اكتشف المزيد</span>
+              <i class="fas fa-arrow-left"></i>
+            </a>
+          </div>
+
+          <div class="service-card">
+            <div class="service-icon">
+              <i class="fas fa-shopping-cart"></i>
+            </div>
+            <h3>المتاجر الإلكترونية</h3>
+            <p>
+              تطوير متاجر إلكترونية متكاملة مع أنظمة الدفع والشحن وإدارة المخزون
+              بأحدث المعايير الأمنية
+            </p>
+            <a href="services/ecommerce.html" class="service-cta">
+              <span>اكتشف المزيد</span>
+              <i class="fas fa-arrow-left"></i>
+            </a>
+          </div>
+
+          <div class="service-card">
+            <div class="service-icon">
+              <i class="fas fa-paint-brush"></i>
+            </div>
+            <h3>التصميم الجرافيكي</h3>
+            <p>
+              تصميم هويات بصرية متميزة ومواد إعلانية إبداعية تعكس شخصية علامتك
+              التجارية بأسلوب احترافي
+            </p>
+            <a href="services/graphic.html" class="service-cta">
+              <span>اكتشف المزيد</span>
+              <i class="fas fa-arrow-left"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="services-bottom-cta">
+          <div class="cta-content">
+            <h3>هل تحتاج استشارة تقنية مخصصة؟</h3>
+            <p>تواصل معنا للحصول على استشارة مجانية حول مشروعك التقني</p>
+          </div>
+          <a href="#contact" class="btn btn-primary btn-large">
+            <i class="fas fa-comments"></i>
+            احصل على استشارة تقنية مجانية
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="sectors">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">لماذا تختارنا؟</h2>
+          <p class="section-subtitle">نتميز بمجموعة من المميزات التي تجعلنا الخيار الأمثل لمشروعك</p>
+        </div>
+        <div class="sectors-grid">
+          <div class="sector-card">
+            <div class="sector-icon">
+              <i class="fas fa-rocket"></i>
+            </div>
+            <h3>سرعة في التطوير</h3>
+          </div>
+          <div class="sector-card">
+            <div class="sector-icon">
+              <i class="fas fa-shield-alt"></i>
+            </div>
+            <h3>أمان عالي</h3>
+          </div>
+          <div class="sector-card">
+            <div class="sector-icon">
+              <i class="fas fa-mobile-alt"></i>
+            </div>
+            <h3>تصميم متجاوب</h3>
+          </div>
+          <div class="sector-card">
+            <div class="sector-icon">
+              <i class="fas fa-headset"></i>
+            </div>
+            <h3>دعم فني مستمر</h3>
+          </div>
+          <div class="sector-card">
+            <div class="sector-icon">
+              <i class="fas fa-dollar-sign"></i>
+            </div>
+            <h3>أسعار تنافسية</h3>
+          </div>
+          <div class="sector-card">
+            <div class="sector-icon">
+              <i class="fas fa-award"></i>
+            </div>
+            <h3>جودة استثنائية</h3>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Investment Section -->
+    <section id="investment" class="investment">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">تواصل معنا</h2>
+          <p class="section-subtitle">
+            هل لديك مشروع تقني؟ أخبرنا عن فكرتك وسنساعدك في تحويلها لواقع
+          </p>
+        </div>
+        <div class="investment-content">
+          <div class="investment-form">
+            <form class="contact-form">
+              <div class="form-group">
+                <label for="name">الاسم</label>
+                <input type="text" id="name" name="name" required />
+              </div>
+              <div class="form-group">
+                <label for="phone">الهاتف</label>
+                <input type="tel" id="phone" name="phone" required />
+              </div>
+              <div class="form-group">
+                <label for="project-type">نوع المشروع</label>
+                <select id="project-type" name="project-type" required>
+                  <option value="">اختر نوع المشروع</option>
+                  <option value="website">موقع إلكتروني</option>
+                  <option value="ecommerce">متجر إلكتروني</option>
+                  <option value="graphic-design">تصميم جرافيكي</option>
+                  <option value="other">أخرى</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="budget">الميزانية المتوقعة</label>
+                <input type="text" id="budget" name="budget" placeholder="مثال: 10,000 ريال" required />
+              </div>
+              <button type="submit" class="btn btn-primary">
+                <i class="fas fa-paper-plane"></i>
+                إرسال طلب المشروع
+              </button>
+            </form>
+          </div>
+          <div class="investment-image">
+            <img
+              src="images/Voici le métier dont le salaire a le plus augmenté cette année - il est exercé par plus de 20_000 personnes en France.jpeg"
+              alt="فريق تطوير البرمجيات"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Opportunities Section -->
+    <section id="opportunities" class="opportunities">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">أحدث المشاريع المنجزة</h2>
+          <p class="section-subtitle">اطلع على بعض من أعمالنا المتميزة في مجال التطوير</p>
+        </div>
+        <div class="opportunities-grid">
+          <div class="opportunity-card">
+            <div class="opportunity-image">
+              <img
+                src="images/Restaurant Profit Margin.jpeg"
+                alt="متجر إلكتروني للمطاعم"
+              />
+            </div>
+            <div class="opportunity-content">
+              <h3>منصة إلكترونية لإدارة المطاعم</h3>
+              <p>
+                تطوير نظام متكامل لإدارة المطاعم مع نظام الطلبات والدفع الإلكتروني
+                وإدارة المخزون
+              </p>
+              <a href="#" class="btn btn-secondary">شاهد المشروع</a>
+            </div>
+          </div>
+          <div class="opportunity-card">
+            <div class="opportunity-image">
+              <img
+                src="images/online-shopping-concept.jpg"
+                alt="متجر إلكتروني"
+              />
+            </div>
+            <div class="opportunity-content">
+              <h3>متجر إلكتروني متعدد البائعين</h3>
+              <p>
+                تطوير منصة تجارة إلكترونية شاملة تدعم البائعين المتعددين مع نظام
+                عمولات ولوحة تحكم متقدمة
+              </p>
+              <a href="#" class="btn btn-secondary">شاهد المشروع</a>
+            </div>
+          </div>
+          <div class="opportunity-card">
+            <div class="opportunity-image">
+              <img src="images/download (16).jpeg" alt="مشروع تصميم هوية بصرية" />
+            </div>
+            <div class="opportunity-content">
+              <h3>تصميم هوية بصرية شاملة</h3>
+              <p>تصميم هوية بصرية متكاملة لشركة ناشئة تشمل الشعار والمواد الإعلانية والتطبيق الرقمي</p>
+              <a href="#" class="btn btn-secondary">شاهد المشروع</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">آراء عملائنا</h2>
+          <p class="section-subtitle">ماذا يقول عملاؤنا عن خدماتنا</p>
+        </div>
+        <div class="testimonials-grid">
+          <div class="testimonial-card">
+            <div class="testimonial-content">
+              <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+              <p>
+                "فريق محترف وخدمة برمجية متميزة، تم تطوير موقعي الإلكتروني بأعلى
+                معايير الجودة والأمان"
+              </p>
+            </div>
+            <div class="testimonial-author">
+              <img
+                src="images/Presentation Saudi Arabic businessman in traditional wear billboard employee office work job.jpeg"
+                alt="عميل سعودي"
+              />
+              <div class="author-info">
+                <h4>أحمد المحمد</h4>
+                <span>رجل أعمال</span>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-content">
+              <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+              <p>
+                "متجرنا الإلكتروني حقق نجاحاً باهراً بفضل التطوير المتميز والدعم الفني المستمر"
+              </p>
+            </div>
+            <div class="testimonial-author">
+              <img src="images/download (15).jpeg" alt="عميل سعودي" />
+              <div class="author-info">
+                <h4>فاطمة العلي</h4>
+                <span>مستثمرة</span>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-content">
+              <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+              <p>
+                "التصميم الجرافيكي الذي قدموه لشركتنا احترافي ومتميز، ساعد في تعزيز هويتنا البصرية"
+              </p>
+            </div>
+            <div class="testimonial-author">
+              <img src="images/download (15).jpeg" alt="عميل سعودي" />
+              <div class="author-info">
+                <h4>محمد الراشد</h4>
+                <span>مدير تسويق</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">اتصل بنا</h2>
+          <p class="section-subtitle">
+            نخدم جميع أنحاء المملكة العربية السعودية
+          </p>
+        </div>
+        <div class="contact-content">
+          <div class="contact-info">
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <div class="contact-details">
+                <h4>البريد الإلكتروني</h4>
+                <p>info.royaWebsolution@gmail.com</p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="fas fa-phone"></i>
+              </div>
+              <div class="contact-details">
+                <h4>الهاتف</h4>
+                <p>01122881051</p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="fab fa-whatsapp"></i>
+              </div>
+              <div class="contact-details">
+                <h4>واتساب</h4>
+                <p>01122881051</p>
+              </div>
+            </div>
+          </div>
+          <div class="contact-form-container">
+            <form class="contact-form">
+              <div class="form-row">
+                <div class="form-group">
+                  <input type="text" placeholder="الاسم" required />
+                </div>
+                <div class="form-group">
+                  <input
+                    type="email"
+                    placeholder="البريد الإلكتروني"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="form-group">
+                <input type="tel" placeholder="رقم الهاتف" required />
+              </div>
+              <div class="form-group">
+                <textarea placeholder="الرسالة" rows="5" required></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary">
+                <i class="fas fa-paper-plane"></i>
+                إرسال الرسالة
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <img src="logo.png" alt="رؤية" class="footer-logo" />
+            <p>شركة رؤية للبرمجة والتطوير - حلول برمجية متطورة ومتخصصة</p>
+            <div class="social-links">
+              <a href="#"><i class="fab fa-facebook"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-linkedin"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+          </div>
+          <div class="footer-section">
+            <h4>أهم الروابط</h4>
+            <ul>
+              <li><a href="index.html">الرئيسية</a></li>
+              <li><a href="about.html">من نحن</a></li>
+              <li><a href="index.html#services">خدماتنا البرمجية</a></li>
+              <li><a href="index.html#opportunities">أحدث المشاريع</a></li>
+              <li><a href="index.html#features">لماذا تختارنا</a></li>
+              <li><a href="contact.html">تواصل معنا</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h4>أحدث المقالات</h4>
+            <div class="footer-article">
+              <h5>شركة رؤية وأحدث التقنيات في تطوير المواقع</h5>
+              <span>15/1/2025</span>
+            </div>
+            <div class="footer-article">
+              <h5>أهمية التصميم المتجاوب في نجاح المتاجر الإلكترونية</h5>
+              <span>10/1/2025</span>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2025 Ruya Development. Privacy Policy</p>
+          <p>تابعونا على وسائل التواصل الاجتماعي</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
