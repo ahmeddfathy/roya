@@ -38,6 +38,8 @@ body {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 
@@ -180,9 +182,9 @@ body {
 /* Contact Form Section */
 .contact-form-section {
   padding: 8rem 0;
-  transform: translateY(-8px) scale(1.02);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-
+  background: #fafbfc;
+  position: relative;
+  overflow: hidden;
 }
 
 .contact-wrapper {
@@ -222,11 +224,13 @@ body {
 }
 
 .contact-form {
+  background: var(--white);
   padding: 3rem;
   border-radius: 24px;
-  transform: translateY(-8px) scale(1.02);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-
+  box-shadow: 0 20px 60px rgba(79, 195, 247, 0.1);
+  border: 1px solid rgba(79, 195, 247, 0.1);
+  position: relative;
+  z-index: 2;
 }
 
 .form-grid {
@@ -317,16 +321,16 @@ body {
 .contact-info {
   position: sticky;
   top: 120px;
-  transform: translateY(-8px) scale(1.02);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-
+  z-index: 1;
 }
 
 .info-card {
   background: var(--white);
   padding: 3rem;
   border-radius: 24px;
-  box-shadow: var(--shadow);
+  box-shadow: 0 20px 60px rgba(79, 195, 247, 0.1);
+  border: 1px solid rgba(79, 195, 247, 0.1);
+  position: relative;
 }
 
 .info-header h3 {
@@ -420,9 +424,8 @@ body {
 /* Branches Section */
 .branches-section {
   padding: 8rem 0;
-  transform: translateY(-8px) scale(1.02);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-
+  background: var(--white);
+  position: relative;
 }
 
 .branches-header {
@@ -453,12 +456,10 @@ body {
 }
 
 .branch-card {
-  transform: translateY(-8px) scale(1.02);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-
+  background: var(--white);
   padding: 3rem;
   border-radius: 24px;
-
+  box-shadow: 0 15px 40px rgba(79, 195, 247, 0.08);
   transition: all 0.4s ease;
   position: relative;
   border: 1px solid rgba(79, 195, 247, 0.1);
@@ -594,9 +595,8 @@ body {
 /* FAQ Section */
 .faq-section {
   padding: 8rem 0;
-  transform: translateY(-8px) scale(1.02);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-
+  background: #fafbfc;
+  position: relative;
 }
 
 .faq-header {
@@ -626,13 +626,13 @@ body {
 }
 
 .faq-item {
+  background: var(--white);
   border-radius: 15px;
   margin-bottom: 1rem;
-  transform: translateY(-8px) scale(1.02);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-
+  box-shadow: 0 8px 25px rgba(79, 195, 247, 0.08);
   overflow: hidden;
   transition: all 0.3s ease;
+  border: 1px solid rgba(79, 195, 247, 0.1);
 }
 
 .faq-item:hover {
@@ -748,15 +748,76 @@ body {
 
 
 /* Responsive Design */
+
+/* Large screens */
+@media (max-width: 1200px) {
+  .container {
+    max-width: 1100px;
+    padding: 0 30px;
+  }
+  
+  .hero-title {
+    font-size: 3.5rem;
+  }
+  
+  .form-title, .branches-title, .faq-title {
+    font-size: 2.5rem;
+  }
+}
+
+/* Medium screens - Tablets */
+@media (max-width: 1024px) {
+  .container {
+    max-width: 900px;
+    padding: 0 25px;
+  }
+  
+  .hero-title {
+    font-size: 3rem;
+  }
+  
+  .hero-description {
+    font-size: 1.2rem;
+  }
+  
+  .contact-wrapper {
+    gap: 3rem;
+  }
+  
+  .form-title, .branches-title, .faq-title {
+    font-size: 2.2rem;
+  }
+  
+  .branches-grid {
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  }
+}
+
+/* Small tablets and large phones */
 @media (max-width: 768px) {
+  .container {
+    max-width: 100%;
+    padding: 0 20px;
+  }
 
   .hero-title {
     font-size: 2.5rem;
+    line-height: 1.1;
+  }
+  
+  .hero-description {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
   }
 
   .hero-stats {
     flex-direction: column;
     gap: 1rem;
+  }
+  
+  .stat {
+    justify-content: center;
+    text-align: center;
   }
 
   .contact-wrapper {
@@ -767,24 +828,189 @@ body {
   .contact-info {
     position: static;
   }
+  
+  .contact-form {
+    padding: 2rem;
+  }
 
   .branches-grid {
     grid-template-columns: 1fr;
   }
+  
+  .branch-card {
+    padding: 2rem;
+  }
 
   .form-grid {
     grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .form-title, .branches-title, .faq-title {
+    font-size: 2rem;
+  }
+  
+  .form-description, .branches-description, .faq-description {
+    font-size: 1.1rem;
   }
 
   .cta-content {
     flex-direction: column;
     text-align: center;
+    gap: 2rem;
+  }
+  
+  .cta-text h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .cta-text p {
+    font-size: 1.1rem;
   }
 
   .cta-actions {
     flex-direction: column;
     width: 100%;
+    gap: 1rem;
+  }
+  
+  .btn-primary, .btn-whatsapp {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .branch-actions {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .branch-actions .btn-primary,
+  .branch-actions .btn-outline {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* Mobile phones */
+@media (max-width: 480px) {
+  .container {
+    padding: 0 15px;
+  }
+  
+  .hero-section {
+    height: 90vh;
   }
 
+  .hero-title {
+    font-size: 2rem;
+  }
+  
+  .hero-description {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+  
+  .hero-badge {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.8rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .stat {
+    padding: 0.8rem 1.2rem;
+    font-size: 0.9rem;
+  }
+  
+  .contact-form {
+    padding: 1.5rem;
+  }
+  
+  .form-title, .branches-title, .faq-title {
+    font-size: 1.8rem;
+  }
+  
+  .section-badge {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.8rem;
+  }
+  
+  .contact-form-section,
+  .branches-section,
+  .faq-section {
+    padding: 4rem 0;
+  }
+  
+  .info-card {
+    padding: 2rem;
+  }
+  
+  .contact-method {
+    padding: 1rem;
+  }
+  
+  .method-icon {
+    width: 50px;
+    height: 50px;
+    font-size: 1.2rem;
+  }
+  
+  .branch-card {
+    padding: 1.5rem;
+  }
+  
+  .branch-icon {
+    width: 60px;
+    height: 60px;
+    font-size: 1.5rem;
+  }
+  
+  .cta-section {
+    padding: 4rem 0;
+  }
+  
+  .cta-text h2 {
+    font-size: 1.8rem;
+  }
+  
+  .cta-text p {
+    font-size: 1rem;
+  }
+  
+  .btn-primary, .btn-whatsapp {
+    padding: 1rem 2rem;
+    font-size: 1rem;
+  }
+}
 
+/* Extra small devices */
+@media (max-width: 360px) {
+  .container {
+    padding: 0 10px;
+  }
+  
+  .hero-title {
+    font-size: 1.8rem;
+  }
+  
+  .form-title, .branches-title, .faq-title {
+    font-size: 1.6rem;
+  }
+  
+  .contact-form {
+    padding: 1rem;
+  }
+  
+  .info-card {
+    padding: 1.5rem;
+  }
+  
+  .branch-card {
+    padding: 1.2rem;
+  }
+  
+  .btn-primary, .btn-whatsapp {
+    padding: 0.9rem 1.5rem;
+    font-size: 0.95rem;
+  }
 }

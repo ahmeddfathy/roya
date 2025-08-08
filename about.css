@@ -24,18 +24,32 @@
   --shadow-hover: 0 20px 60px rgba(79, 195, 247, 0.25);
 }
 
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: "Cairo", sans-serif;
   line-height: 1.7;
   color: var(--text-dark);
   overflow-x: hidden;
   background: var(--white);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
 }
 
 .container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 
@@ -632,25 +646,115 @@ body {
 
 
 /* Responsive Design */
-@media (max-width: 768px) {
 
+/* Large Desktop */
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1400px;
+  }
+  
+  .hero-title {
+    font-size: 3.5rem;
+  }
+  
+  .story-title,
+  .goals-title,
+  .services-title {
+    font-size: 3.5rem;
+  }
+}
+
+/* Medium Desktop */
+@media (max-width: 1024px) {
+  .container {
+    padding: 0 30px;
+  }
+  
+  .hero-title {
+    font-size: 2.8rem;
+  }
+  
+  .story-title,
+  .goals-title,
+  .services-title {
+    font-size: 2.5rem;
+  }
+  
+  .story-wrapper,
+  .services-wrapper {
+    gap: 4rem;
+  }
+  
+  .vm-grid {
+    gap: 2rem;
+  }
+  
+  .goals-grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 20px;
+  }
+  
+  /* Hero Section */
   .hero-section {
     height: 60vh;
     min-height: 500px;
+    padding: 2rem 0;
+  }
+  
+  .hero-content {
+    padding: 0 1rem;
+  }
+  
+  .hero-badge {
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+    padding: 0.6rem 1.2rem;
+    font-size: 0.8rem;
   }
 
   .hero-title {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
+    line-height: 1.3;
+    margin-bottom: 1.5rem;
   }
 
   .hero-description {
-    font-size: 1.1rem;
+    font-size: 1rem;
     margin-bottom: 2rem;
+    max-width: 100%;
   }
 
   .hero-stats {
     flex-direction: column;
     gap: 1rem;
+    margin-top: 2rem;
+  }
+  
+  .stat {
+    padding: 1rem;
+    min-width: 100px;
+  }
+  
+  .stat-number {
+    font-size: 1.5rem;
+  }
+  
+  .stat-label {
+    font-size: 0.8rem;
+  }
+  
+  /* Sections */
+  .story-section,
+  .vision-mission-section,
+  .goals-section,
+  .services-overview-section {
+    padding: 4rem 0;
   }
 
   .story-wrapper,
@@ -659,10 +763,247 @@ body {
     grid-template-columns: 1fr;
     gap: 3rem;
   }
+  
+  .story-title,
+  .goals-title,
+  .services-title {
+    font-size: 2rem;
+    text-align: center;
+  }
+  
+  .vm-card {
+    padding: 2rem;
+  }
+  
+  .vm-card h3 {
+    font-size: 1.5rem;
+  }
+  
+  .vm-icon {
+    width: 60px;
+    height: 60px;
+    font-size: 1.5rem;
+  }
 
   .goals-grid {
     grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .goal-card {
+    padding: 2rem;
+  }
+  
+  .goal-icon {
+    width: 60px;
+    height: 60px;
+    font-size: 1.5rem;
+  }
+  
+  .visual-card img,
+  .services-visual img {
+    height: 300px;
+  }
+  
+  .floating-card {
+    display: none;
+  }
+  
+  .services-badge {
+    position: static;
+    margin-bottom: 1rem;
+    display: inline-flex;
+  }
+}
+
+/* Mobile Large */
+@media (max-width: 480px) {
+  .container {
+    padding: 0 15px;
+  }
+  
+  /* Hero Section */
+  .hero-section {
+    height: 50vh;
+    min-height: 400px;
+  }
+  
+  .hero-badge {
+    padding: 0.5rem 1rem;
+    font-size: 0.7rem;
   }
 
+  .hero-title {
+    font-size: 1.8rem;
+    line-height: 1.4;
+  }
 
+  .hero-description {
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
+  .hero-stats {
+    gap: 0.8rem;
+  }
+  
+  .stat {
+    padding: 0.8rem;
+    min-width: 80px;
+  }
+  
+  .stat-number {
+    font-size: 1.2rem;
+  }
+  
+  .stat-label {
+    font-size: 0.7rem;
+  }
+  
+  /* Sections */
+  .story-section,
+  .vision-mission-section,
+  .goals-section,
+  .services-overview-section {
+    padding: 3rem 0;
+  }
+  
+  .section-badge {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.8rem;
+  }
+  
+  .story-title,
+  .goals-title,
+  .services-title {
+    font-size: 1.6rem;
+    line-height: 1.3;
+  }
+  
+  .story-text p,
+  .services-description {
+    font-size: 1rem;
+  }
+  
+  .vm-card,
+  .goal-card {
+    padding: 1.5rem;
+  }
+  
+  .vm-card h3,
+  .goal-card h3 {
+    font-size: 1.2rem;
+  }
+  
+  .vm-icon,
+  .goal-icon {
+    width: 50px;
+    height: 50px;
+    font-size: 1.2rem;
+  }
+  
+  .goal-number {
+    width: 30px;
+    height: 30px;
+    font-size: 0.9rem;
+    top: -10px;
+    right: 1.5rem;
+  }
+  
+  .visual-card img,
+  .services-visual img {
+    height: 250px;
+  }
+  
+  .service-item {
+    padding: 1rem;
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .service-item i {
+    margin-bottom: 0.5rem;
+  }
+  
+  .cta-button {
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* Mobile Small */
+@media (max-width: 360px) {
+  .container {
+    padding: 0 10px;
+  }
+  
+  .hero-title {
+    font-size: 1.5rem;
+  }
+  
+  .hero-description {
+    font-size: 0.8rem;
+  }
+  
+  .story-title,
+  .goals-title,
+  .services-title {
+    font-size: 1.4rem;
+  }
+  
+  .vm-card,
+  .goal-card {
+    padding: 1rem;
+  }
+  
+  .service-item {
+    padding: 0.8rem;
+  }
+  
+  .visual-card img,
+  .services-visual img {
+    height: 200px;
+  }
+}
+
+/* Ultra Wide Screens */
+@media (min-width: 1600px) {
+  .container {
+    max-width: 1600px;
+  }
+  
+  .hero-title {
+    font-size: 4rem;
+  }
+  
+  .story-title,
+  .goals-title,
+  .services-title {
+    font-size: 4rem;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .header,
+  .hero-scroll,
+  .floating-card,
+  .cta-button {
+    display: none;
+  }
+  
+  .hero-section {
+    height: auto;
+    min-height: auto;
+    page-break-after: always;
+  }
+  
+  .story-section,
+  .vision-mission-section,
+  .goals-section,
+  .services-overview-section {
+    page-break-inside: avoid;
+  }
 }
