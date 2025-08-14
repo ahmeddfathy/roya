@@ -5,6 +5,47 @@
   box-sizing: border-box;
 }
 
+/* تحسين الأداء للأجهزة المحمولة */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* تحسين النصوص للشاشات عالية الكثافة */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* منع التكبير غير المرغوب فيه على iOS */
+@media screen and (max-width: 480px) {
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  textarea,
+  select {
+    font-size: 16px;
+    min-height: 44px;
+    touch-action: manipulation;
+  }
+}
+
+/* تحسين الأداء للعناصر التفاعلية */
+.vm-card,
+.goal-card,
+.service-item,
+.cta-button,
+.floating-card,
+.hero-badge {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-perspective: 1000px;
+  perspective: 1000px;
+}
+
 :root {
   --primary-color: #4fc3f7;
   --primary-dark: #29b6f6;
@@ -27,6 +68,9 @@
 html {
   font-size: 16px;
   scroll-behavior: smooth;
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100%;
 }
 
 body {
@@ -37,11 +81,8 @@ body {
   background: var(--white);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-img {
+  width: 100%;
   max-width: 100%;
-  height: auto;
 }
 
 .container {
@@ -50,6 +91,7 @@ img {
   padding: 0 20px;
   width: 100%;
   box-sizing: border-box;
+  overflow-x: hidden;
 }
 
 
@@ -369,6 +411,8 @@ img {
   position: relative;
   overflow: hidden;
   border: 2px solid transparent;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .vm-card:hover {
@@ -457,6 +501,8 @@ img {
   transition: all 0.4s ease;
   position: relative;
   border: 1px solid rgba(79, 195, 247, 0.1);
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .goal-card:hover {
@@ -588,7 +634,8 @@ img {
   transition: all 0.3s ease;
   transform: translateY(-8px) scale(1.02);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .service-item:hover {
@@ -630,6 +677,9 @@ img {
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
   position: relative;
   overflow: hidden;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  min-height: 50px;
 }
 
 .cta-button:hover {
@@ -698,17 +748,29 @@ img {
 @media (max-width: 768px) {
   .container {
     padding: 0 20px;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  /* Prevent horizontal scroll */
+  body {
+    overflow-x: hidden;
+    width: 100%;
   }
   
   /* Hero Section */
   .hero-section {
-    height: 60vh;
+    height: 90vh;
     min-height: 500px;
-    padding: 2rem 0;
+    padding-top: 80px;
+    width: 100%;
+    overflow: hidden;
   }
   
   .hero-content {
     padding: 0 1rem;
+    text-align: center;
+    max-width: 100%;
   }
   
   .hero-badge {
@@ -820,44 +882,73 @@ img {
 @media (max-width: 480px) {
   .container {
     padding: 0 15px;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  /* Prevent horizontal scroll */
+  body {
+    overflow-x: hidden;
+    width: 100%;
   }
   
   /* Hero Section */
   .hero-section {
-    height: 50vh;
-    min-height: 400px;
+    height: 100vh;
+    min-height: 450px;
+    width: 100%;
+    overflow: hidden;
+    padding-top: 70px;
+  }
+  
+  .hero-content {
+    padding: 0 10px;
+    text-align: center;
+    max-width: 100%;
   }
   
   .hero-badge {
-    padding: 0.5rem 1rem;
-    font-size: 0.7rem;
+    padding: 0.6rem 1.2rem;
+    font-size: 0.8rem;
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
   }
 
   .hero-title {
     font-size: 1.8rem;
     line-height: 1.4;
+    margin-bottom: 1.2rem;
+    text-shadow: 2px 2px 12px rgba(0, 0, 0, 0.95), 0 0 20px rgba(0, 0, 0, 0.8);
+    padding: 0 10px;
   }
 
   .hero-description {
-    font-size: 0.9rem;
-    line-height: 1.5;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    padding: 0 15px;
+    max-width: 100%;
   }
 
   .hero-stats {
-    gap: 0.8rem;
+    gap: 1rem;
+    flex-direction: column;
+    align-items: center;
   }
   
   .stat {
-    padding: 0.8rem;
-    min-width: 80px;
+    padding: 1rem;
+    min-width: 100px;
+    max-width: 200px;
+    width: 100%;
   }
   
   .stat-number {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
   }
   
   .stat-label {
-    font-size: 0.7rem;
+    font-size: 0.8rem;
   }
   
   /* Sections */
@@ -926,25 +1017,65 @@ img {
   }
   
   .cta-button {
-    padding: 1rem 2rem;
+    padding: 1.2rem 2rem;
     font-size: 1rem;
     width: 100%;
     justify-content: center;
+    min-height: 52px;
+    max-width: 350px;
+    margin: 0 auto;
+    display: flex;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
   }
 }
 
 /* Mobile Small */
 @media (max-width: 360px) {
   .container {
-    padding: 0 10px;
+    padding: 0 8px;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  .hero-section {
+    height: 100vh;
+    min-height: 400px;
+    width: 100%;
+    overflow: hidden;
+    padding-top: 70px;
+  }
+  
+  .hero-content {
+    padding: 0 8px;
   }
   
   .hero-title {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
+    line-height: 1.4;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 12px rgba(0, 0, 0, 0.95), 0 0 20px rgba(0, 0, 0, 0.8);
+    padding: 0 8px;
   }
   
   .hero-description {
-    font-size: 0.8rem;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+    padding: 0 12px;
+  }
+
+  .stat {
+    padding: 0.8rem;
+    min-width: 90px;
+  }
+  
+  .stat-number {
+    font-size: 1.2rem;
+  }
+  
+  .stat-label {
+    font-size: 0.7rem;
   }
   
   .story-title,
@@ -956,6 +1087,12 @@ img {
   .vm-card,
   .goal-card {
     padding: 1rem;
+    min-height: auto;
+  }
+
+  .vm-card h3,
+  .goal-card h3 {
+    font-size: 1.1rem;
   }
   
   .service-item {

@@ -4,9 +4,39 @@ document.addEventListener('DOMContentLoaded', function() {
     const navMenu = document.querySelector('.nav-menu');
     
     if (navToggle && navMenu) {
-        navToggle.addEventListener('click', function() {
-            navMenu.classList.toggle('active');
-            navToggle.classList.toggle('active');
+        navToggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            const isActive = navMenu.classList.contains('active');
+            
+            if (isActive) {
+                navMenu.classList.remove('active');
+                navToggle.classList.remove('active');
+                document.body.classList.remove('nav-open');
+            } else {
+                navMenu.classList.add('active');
+                navToggle.classList.add('active');
+                document.body.classList.add('nav-open');
+            }
+        });
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!navToggle.contains(e.target) && !navMenu.contains(e.target)) {
+                navMenu.classList.remove('active');
+                navToggle.classList.remove('active');
+                document.body.classList.remove('nav-open');
+            }
+        });
+        
+        // Close menu on window resize
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 768) {
+                navMenu.classList.remove('active');
+                navToggle.classList.remove('active');
+                document.body.classList.remove('nav-open');
+            }
         });
     }
 
@@ -189,24 +219,45 @@ style.textContent = `
 
     /* Mobile Navigation Styles */
     @media (max-width: 768px) {
+        body.nav-open {
+            overflow: hidden;
+        }
+
         .nav-menu {
+            display: none;
             position: fixed;
-            top: 80px;
+            top: 0;
             right: -100%;
             width: 100%;
-            height: calc(100vh - 80px);
-            background: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(20px);
+            height: 100vh;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(248, 250, 251, 0.98) 100%);
+            backdrop-filter: blur(25px);
             flex-direction: column;
-            justify-content: flex-start;
+            justify-content: center;
             align-items: center;
-            padding-top: 2rem;
-            transition: right 0.3s ease;
-            z-index: 999;
+            padding: 2rem 0;
+            transition: right 0.3s ease-in-out;
+            z-index: 1001;
+            border-top: 1px solid rgba(79, 195, 247, 0.1);
+            overflow-y: auto;
+            padding-top: 100px;
         }
 
         .nav-menu.active {
+            display: flex;
             right: 0;
+            animation: slideInDown 0.4s ease-out;
+        }
+
+        @keyframes slideInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .nav-menu li {
@@ -214,8 +265,33 @@ style.textContent = `
         }
 
         .nav-menu a {
-            font-size: 1.2rem;
-            padding: 1rem;
+            width: calc(100% - 2rem);
+            text-align: center;
+            padding: 1.2rem 1.5rem;
+            border-radius: 12px;
+            margin: 0.1rem 1rem;
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: var(--text-dark);
+            background: rgba(255, 255, 255, 0.7);
+            border: 1px solid rgba(79, 195, 247, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 50px;
+            touch-action: manipulation;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .nav-menu a:hover {
+            background: linear-gradient(135deg, rgba(79, 195, 247, 0.15) 0%, rgba(129, 212, 250, 0.1) 100%);
+            color: var(--primary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(79, 195, 247, 0.2);
+            border-color: rgba(79, 195, 247, 0.3);
         }
 
         .nav-toggle.active span:nth-child(1) {

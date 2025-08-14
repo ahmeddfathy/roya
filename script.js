@@ -112,10 +112,22 @@ window.addEventListener("scroll", () => {
 const navToggle = document.querySelector(".nav-toggle");
 const navMenu = document.querySelector(".nav-menu");
 
-navToggle.addEventListener("click", () => {
-  navMenu.classList.toggle("active");
-  navToggle.classList.toggle("active");
-  document.body.classList.toggle("nav-open");
+navToggle.addEventListener("click", (e) => {
+  e.preventDefault();
+  e.stopPropagation();
+  
+  const isActive = navMenu.classList.contains("active");
+  
+  if (isActive) {
+    navMenu.classList.remove("active");
+    navToggle.classList.remove("active");
+    document.body.classList.remove("nav-open");
+  } else {
+    navMenu.classList.add("active");
+    navToggle.classList.add("active");
+    document.body.classList.add("nav-open");
+  }
+
 });
 
 // Close mobile menu when clicking on links
@@ -457,3 +469,4 @@ rippleStyle.textContent = `
 `;
 
 document.head.appendChild(rippleStyle);
+
