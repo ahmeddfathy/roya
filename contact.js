@@ -1,15 +1,37 @@
 // Contact Page Specific Functionality
 document.addEventListener('DOMContentLoaded', function() {
 
+    // Initialize EmailJS
+    try {
+        emailjs.init("UeAvv9IeOGLLl8PCX");
+    } catch (error) {
+        // EmailJS initialization failed
+    }
+
     // Contact Form Handling
     const contactForm = document.getElementById('contactForm');
     if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
             
+            // Validate form
+            const isValid = validateForm();
+            if (!isValid) {
+                showNotification('يرجى تصحيح الأخطاء في النموذج قبل الإرسال', 'error');
+                return;
+            }
+            
             // Get form data
             const formData = new FormData(this);
-            const data = Object.fromEntries(formData);
+            const templateParams = {
+                user_name: formData.get('name'),
+                user_email: formData.get('email'),
+                user_phone: formData.get('phone'),
+                user_subject: formData.get('subject'),
+                user_message: formData.get('message'),
+                to_name: 'فريق رؤية للبرمجة',
+                reply_to: formData.get('email')
+            };
             
             // Show loading state
             const submitBtn = this.querySelector('.submit-btn');
@@ -17,19 +39,63 @@ document.addEventListener('DOMContentLoaded', function() {
             submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> جاري الإرسال...';
             submitBtn.disabled = true;
             
-            // Simulate form submission (replace with actual API call)
-            setTimeout(() => {
-                // Show success message
-                showNotification('تم إرسال رسالتك بنجاح! سيتواصل معك فريقنا التقني قريباً.', 'success');
-                
-                // Reset form
-                this.reset();
-                
-                // Reset button
+            // تحقق من وجود EmailJS
+            if (typeof emailjs === 'undefined') {
+                showNotification('خطأ في تحميل مكتبة الإرسال. يرجى إعادة تحميل الصفحة والمحاولة مرة أخرى.', 'error');
                 submitBtn.innerHTML = originalText;
                 submitBtn.disabled = false;
-            }, 2000);
+                return;
+            }
+            
+            // Send email using EmailJS (طريقة بديلة)
+            // يمكن استخدام sendForm بدلاً من send إذا كانت هناك مشاكل
+            emailjs.sendForm('service_cum9fyq', 'template_d75cc3p', this)
+                .then((response) => {
+                    // Show success message
+                    showNotification('تم إرسال رسالتك بنجاح! سيتواصل معك فريقنا التقني قريباً.', 'success');
+                    
+                    // Reset form
+                    this.reset();
+                })
+                .catch((error) => {
+                    // تحديد نوع الخطأ وإظهار رسالة مناسبة
+                    let errorMessage = 'حدث خطأ في إرسال الرسالة. ';
+                    
+                    if (error.status === 400) {
+                        errorMessage += 'البيانات المدخلة غير صحيحة. يرجى التحقق من جميع الحقول.';
+                    } else if (error.status === 401) {
+                        errorMessage += 'خطأ في التوثيق. يرجى التواصل مع مطور الموقع.';
+                    } else if (error.status === 403) {
+                        errorMessage += 'غير مسموح بهذا الإجراء. يرجى التواصل معنا مباشرة.';
+                    } else if (error.status >= 500) {
+                        errorMessage += 'خطأ في الخادم. يرجى المحاولة مرة أخرى لاحقاً.';
+                    } else {
+                        errorMessage += 'يرجى التحقق من اتصال الإنترنت والمحاولة مرة أخرى.';
+                    }
+                    
+                    showNotification(errorMessage, 'error');
+                })
+                .finally(() => {
+                    // Reset button
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                });
         });
+    }
+
+    // Form validation function
+    function validateForm() {
+        const inputs = contactForm.querySelectorAll('input[required], select[required], textarea[required]');
+        let isValid = true;
+
+        inputs.forEach(input => {
+            const event = { target: input };
+            if (!validateField(event)) {
+                isValid = false;
+            }
+        });
+
+        return isValid;
     }
 
     // FAQ Accordion
@@ -145,9 +211,13 @@ document.addEventListener('DOMContentLoaded', function() {
         // Create notification element
         const notification = document.createElement('div');
         notification.className = `notification notification-${type}`;
+        let iconClass = 'info-circle';
+        if (type === 'success') iconClass = 'check-circle';
+        if (type === 'error') iconClass = 'exclamation-circle';
+
         notification.innerHTML = `
             <div class="notification-content">
-                <i class="fas fa-${type === 'success' ? 'check-circle' : 'info-circle'}"></i>
+                <i class="fas fa-${iconClass}"></i>
                 <span>${message}</span>
             </div>
             <button class="notification-close">
@@ -268,6 +338,10 @@ style.textContent = `
         border-left-color: #10B981;
     }
 
+    .notification.notification-error {
+        border-left-color: #EF4444;
+    }
+
     .notification.show {
         transform: translateX(0);
     }
@@ -286,6 +360,10 @@ style.textContent = `
 
     .notification-success .notification-content i {
         color: #10B981;
+    }
+
+    .notification-error .notification-content i {
+        color: #EF4444;
     }
 
     .notification-close {

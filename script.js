@@ -2,7 +2,6 @@
 class HeroCarousel {
   constructor() {
     this.slides = document.querySelectorAll(".carousel-slide");
-    this.indicators = document.querySelectorAll(".indicator");
     this.prevBtn = document.querySelector(".prev-btn");
     this.nextBtn = document.querySelector(".next-btn");
     this.currentSlide = 0;
@@ -15,11 +14,6 @@ class HeroCarousel {
     // Add event listeners
     this.prevBtn.addEventListener("click", () => this.prevSlide());
     this.nextBtn.addEventListener("click", () => this.nextSlide());
-
-    // Add indicator listeners
-    this.indicators.forEach((indicator, index) => {
-      indicator.addEventListener("click", () => this.goToSlide(index));
-    });
 
     // Auto-play carousel
     this.startAutoPlay();
@@ -39,14 +33,12 @@ class HeroCarousel {
   goToSlide(slideIndex) {
     // Remove active classes
     this.slides[this.currentSlide].classList.remove("active");
-    this.indicators[this.currentSlide].classList.remove("active");
 
     // Update current slide
     this.currentSlide = slideIndex;
 
     // Add active classes
     this.slides[this.currentSlide].classList.add("active");
-    this.indicators[this.currentSlide].classList.add("active");
   }
 
   nextSlide() {
@@ -362,3 +354,269 @@ rippleStyle.textContent = `
 `;
 
 document.head.appendChild(rippleStyle);
+
+// EmailJS Integration for Index Page Forms
+document.addEventListener('DOMContentLoaded', function() {
+  try {
+    if (typeof emailjs !== 'undefined') {
+      emailjs.init("UeAvv9IeOGLLl8PCX");
+    }
+  } catch (error) {
+    // EmailJS initialization failed
+  }
+
+  // Investment Form Handler - Removed as form was deleted
+
+  // Contact Form Handler
+  const contactIndexForm = document.getElementById('contactIndexForm');
+  if (contactIndexForm) {
+    contactIndexForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // Validate form
+      if (!validateIndexForm(this)) {
+        showIndexNotification('يرجى تصحيح الأخطاء في النموذج قبل الإرسال', 'error');
+        return;
+      }
+      
+      const formData = new FormData(this);
+      
+      const templateParams = {
+        to_name: 'فريق رؤية للبرمجة',
+        from_name: formData.get('name'),
+        from_email: formData.get('email'),
+        from_phone: formData.get('phone'),
+        message: formData.get('message'),
+        form_type: 'رسالة تواصل',
+        reply_to: formData.get('email'),
+        user_name: formData.get('name'),
+        user_email: formData.get('email'),
+        user_phone: formData.get('phone'),
+        user_message: formData.get('message')
+      };
+      
+      // Show loading state
+      const submitBtn = this.querySelector('button[type="submit"]');
+      const originalText = submitBtn.innerHTML;
+      submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> جاري الإرسال...';
+      submitBtn.disabled = true;
+      
+      // Check if EmailJS is available
+      if (typeof emailjs === 'undefined') {
+        showIndexNotification('خطأ في تحميل مكتبة الإرسال. يرجى إعادة تحميل الصفحة والمحاولة مرة أخرى.', 'error');
+        submitBtn.innerHTML = originalText;
+        submitBtn.disabled = false;
+        return;
+      }
+      
+      if (!emailjs) {
+        showIndexNotification('EmailJS غير متاح. يرجى إعادة تحميل الصفحة.', 'error');
+        submitBtn.innerHTML = originalText;
+        submitBtn.disabled = false;
+        return;
+      }
+      
+      // Send email using EmailJS
+      emailjs.send('service_cum9fyq', 'template_4lsf0eg', templateParams)
+        .then((response) => {
+          showIndexNotification('تم إرسال رسالتك بنجاح! سيتواصل معك فريقنا التقني قريباً.', 'success');
+          this.reset();
+        })
+        .catch((error) => {
+          let errorMessage = 'حدث خطأ في إرسال الرسالة. ';
+          
+          if (error.status === 400) {
+            errorMessage += 'البيانات المدخلة غير صحيحة. يرجى التحقق من جميع الحقول.';
+          } else if (error.status === 401) {
+            errorMessage += 'خطأ في التوثيق. يرجى التواصل مع مطور الموقع.';
+          } else if (error.status === 403) {
+            errorMessage += 'غير مسموح بهذا الإجراء. يرجى التواصل معنا مباشرة.';
+          } else if (error.status >= 500) {
+            errorMessage += 'خطأ في الخادم. يرجى المحاولة مرة أخرى لاحقاً.';
+          } else {
+            if (error.text) {
+              errorMessage += `تفاصيل الخطأ: ${error.text}`;
+            } else if (error.message) {
+              errorMessage += `تفاصيل الخطأ: ${error.message}`;
+            } else {
+              errorMessage += 'يرجى التحقق من إعدادات EmailJS.';
+            }
+          }
+          
+          showIndexNotification(errorMessage, 'error');
+        })
+        .finally(() => {
+          submitBtn.innerHTML = originalText;
+          submitBtn.disabled = false;
+        });
+    });
+  }
+
+  // Form validation function
+  function validateIndexForm(form) {
+    const inputs = form.querySelectorAll('input[required], select[required], textarea[required]');
+    let isValid = true;
+
+    inputs.forEach(input => {
+      const value = input.value.trim();
+      
+      if (!value) {
+        isValid = false;
+        input.style.borderColor = '#EF4444';
+      } else if (input.type === 'email' && value) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(value)) {
+          isValid = false;
+          input.style.borderColor = '#EF4444';
+        } else {
+          input.style.borderColor = '';
+        }
+      } else if (input.type === 'tel' && value) {
+        const phoneRegex = /^[\+]?[0-9\s\-\(\)]{10,}$/;
+        if (!phoneRegex.test(value)) {
+          isValid = false;
+          input.style.borderColor = '#EF4444';
+        } else {
+          input.style.borderColor = '';
+        }
+      } else {
+        input.style.borderColor = '';
+      }
+    });
+
+    return isValid;
+  }
+
+  // Notification system for index page
+  function showIndexNotification(message, type = 'info') {
+    // Remove existing notifications
+    const existingNotifications = document.querySelectorAll('.index-notification');
+    existingNotifications.forEach(notification => notification.remove());
+    
+    // Create notification element
+    const notification = document.createElement('div');
+    notification.className = `index-notification notification-${type}`;
+    let iconClass = 'info-circle';
+    if (type === 'success') iconClass = 'check-circle';
+    if (type === 'error') iconClass = 'exclamation-circle';
+
+    notification.innerHTML = `
+      <div class="notification-content">
+        <i class="fas fa-${iconClass}"></i>
+        <span>${message}</span>
+      </div>
+      <button class="notification-close">
+        <i class="fas fa-times"></i>
+      </button>
+    `;
+    
+    // Add to page
+    document.body.appendChild(notification);
+    
+    // Show notification
+    setTimeout(() => {
+      notification.classList.add('show');
+    }, 100);
+    
+    // Auto hide after 5 seconds
+    setTimeout(() => {
+      hideIndexNotification(notification);
+    }, 5000);
+    
+    // Close button functionality
+    const closeBtn = notification.querySelector('.notification-close');
+    closeBtn.addEventListener('click', () => {
+      hideIndexNotification(notification);
+    });
+  }
+
+  function hideIndexNotification(notification) {
+    notification.classList.remove('show');
+    setTimeout(() => {
+      if (notification.parentNode) {
+        notification.parentNode.removeChild(notification);
+      }
+    }, 300);
+  }
+});
+
+// Add notification styles for index page
+const indexNotificationStyle = document.createElement('style');
+indexNotificationStyle.textContent = `
+  .index-notification {
+    position: fixed;
+    top: 100px;
+    right: 20px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    padding: 1rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    transform: translateX(400px);
+    transition: transform 0.3s ease;
+    z-index: 10000;
+    max-width: 400px;
+    border-left: 4px solid var(--primary-color);
+  }
+
+  .index-notification.notification-success {
+    border-left-color: #10B981;
+  }
+
+  .index-notification.notification-error {
+    border-left-color: #EF4444;
+  }
+
+  .index-notification.show {
+    transform: translateX(0);
+  }
+
+  .index-notification .notification-content {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    flex-grow: 1;
+  }
+
+  .index-notification .notification-content i {
+    color: var(--primary-color);
+    font-size: 1.2rem;
+  }
+
+  .index-notification.notification-success .notification-content i {
+    color: #10B981;
+  }
+
+  .index-notification.notification-error .notification-content i {
+    color: #EF4444;
+  }
+
+  .index-notification .notification-close {
+    background: none;
+    border: none;
+    color: #6B7280;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+  }
+
+  .index-notification .notification-close:hover {
+    background: #F3F4F6;
+    color: #374151;
+  }
+
+  @media (max-width: 768px) {
+    .index-notification {
+      right: 10px;
+      left: 10px;
+      max-width: none;
+      top: 90px;
+    }
+  }
+`;
+
+document.head.appendChild(indexNotificationStyle);

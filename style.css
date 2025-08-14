@@ -90,7 +90,7 @@ section:not(.hero-carousel) {
 
 /* Hero Carousel Section */
 .hero-carousel {
-  min-height: 70vh;
+  min-height: 90vh;
   position: relative;
   overflow: hidden;
   padding-top: 80px;
@@ -102,8 +102,8 @@ section:not(.hero-carousel) {
 .carousel-container {
   position: relative;
   width: 100%;
-  height: calc(70vh - 80px);
-  min-height: 400px;
+  height: calc(90vh - 80px);
+  min-height: 500px;
   max-width: 100%;
   overflow: hidden;
 }
@@ -135,13 +135,14 @@ section:not(.hero-carousel) {
   width: 100%;
   height: 100%;
   z-index: 1;
+  background-color: #f8fafb;
 }
 
 .slide-background img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 30%;
+  object-position: center 45%;
   filter: brightness(0.9) contrast(1.1) saturate(1);
   transition: all 0.5s ease;
   transform: scale(1);
@@ -188,7 +189,7 @@ section:not(.hero-carousel) {
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  height: calc(70vh - 80px);
+  height: calc(90vh - 80px);
   max-width: 650px;
   color: white;
   text-align: right;
@@ -278,39 +279,7 @@ section:not(.hero-carousel) {
   box-shadow: 0 8px 24px rgba(79, 195, 247, 0.4);
 }
 
-/* Carousel Indicators */
-.carousel-indicators {
-  position: absolute;
-  bottom: 2rem;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 4;
-  display: flex;
-  gap: 1rem;
-}
 
-.indicator {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.4);
-  border: 2px solid rgba(255, 255, 255, 0.6);
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.indicator.active {
-  background: #4fc3f7;
-  border-color: #4fc3f7;
-  transform: scale(1.2);
-  box-shadow: 0 0 12px rgba(79, 195, 247, 0.6);
-}
-
-.indicator:hover {
-  background: rgba(79, 195, 247, 0.8);
-  border-color: #4fc3f7;
-  transform: scale(1.1);
-}
 
 .btn {
   display: inline-flex;
@@ -941,7 +910,7 @@ section:not(.hero-carousel) {
   font-weight: 600;
 }
 
-/* Investment Section */
+/* Investment Section - Now Contact Info Section */
 .investment {
   padding: 5rem 0;
   background: var(--white);
@@ -954,10 +923,103 @@ section:not(.hero-carousel) {
   align-items: center;
 }
 
+/* Contact Info Details Styling */
+.contact-info-details {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.contact-info-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+  padding: 2rem;
+  background: var(--white);
+  border-radius: 20px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(79, 195, 247, 0.1);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Removed the top border effect on hover */
+
+
+
+.contact-info-icon {
+  width: 60px;
+  height: 60px;
+  background: var(--gradient);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  font-size: 1.5rem;
+  flex-shrink: 0;
+  box-shadow: 0 6px 20px rgba(79, 195, 247, 0.3);
+  transition: all 0.3s ease;
+}
+
+.contact-info-item:hover .contact-info-icon {
+  transform: scale(1.1);
+  box-shadow: 0 8px 25px rgba(79, 195, 247, 0.4);
+}
+
+.contact-info-content {
+  flex: 1;
+}
+
+.contact-info-content h4 {
+  color: var(--text-dark);
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  line-height: 1.3;
+}
+
+.contact-info-content p {
+  color: var(--primary-color);
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+  line-height: 1.4;
+}
+
+.contact-info-content span {
+  color: var(--text-light);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  display: block;
+}
+
+.contact-cta {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.contact-cta .btn {
+  padding: 1.2rem 2.5rem;
+  font-size: 1.1rem;
+  border-radius: 16px;
+  background: var(--gradient);
+  color: var(--white);
+  border: none;
+  box-shadow: 0 8px 24px rgba(79, 195, 247, 0.3);
+  transition: all 0.3s ease;
+}
+
+.contact-cta .btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 32px rgba(79, 195, 247, 0.4);
+  background: linear-gradient(135deg, #29b6f6 0%, #0277bd 100%);
+}
+
 .contact-form {
   transform: translateY(-8px) scale(1.02);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-
   padding: 3rem;
   border-radius: 24px;
   border: 1px solid rgba(0, 0, 0, 0.04);
@@ -1383,17 +1445,17 @@ section:not(.hero-carousel) {
 
   /* Hero Section Responsive */
   .hero-carousel {
-    min-height: 75vh;
+    min-height: 85vh;
     padding-top: 80px;
   }
 
   .carousel-container {
-    height: calc(75vh - 80px);
-    min-height: 400px;
+    height: calc(85vh - 80px);
+    min-height: 450px;
   }
 
   .slide-content {
-    height: calc(75vh - 80px);
+    height: calc(85vh - 80px);
     text-align: center;
     align-items: center;
     max-width: 90%;
@@ -1463,15 +1525,7 @@ section:not(.hero-carousel) {
     font-size: 1.2rem;
   }
 
-  .carousel-indicators {
-    bottom: 1.5rem;
-    gap: 0.8rem;
-  }
 
-  .indicator {
-    width: 12px;
-    height: 12px;
-  }
 
   /* Section Headers */
   .section-header {
@@ -1580,6 +1634,28 @@ section:not(.hero-carousel) {
     padding: 0 1rem;
   }
 
+  .contact-info-details {
+    gap: 1.5rem;
+  }
+
+  .contact-info-item {
+    padding: 1.5rem;
+  }
+
+  .contact-info-icon {
+    width: 50px;
+    height: 50px;
+    font-size: 1.3rem;
+  }
+
+  .contact-info-content h4 {
+    font-size: 1.2rem;
+  }
+
+  .contact-info-content p {
+    font-size: 1rem;
+  }
+
   /* Stats Section */
   .stats-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -1597,13 +1673,13 @@ section:not(.hero-carousel) {
 
   /* Hero Section Mobile */
   .hero-carousel {
-    min-height: 85vh;
+    min-height: 90vh;
     padding-top: 80px;
   }
 
   .carousel-container {
-    height: calc(85vh - 70px);
-    min-height: 400px;
+    height: calc(90vh - 70px);
+    min-height: 450px;
   }
 
   /* Ensure content doesn't hide behind navbar */
@@ -1619,7 +1695,7 @@ section:not(.hero-carousel) {
   }
 
   .slide-content {
-    height: calc(85vh - 70px);
+    height: calc(90vh - 70px);
     padding: 2.5rem 1.2rem;
     max-width: 95%;
     display: flex;
@@ -1666,15 +1742,7 @@ section:not(.hero-carousel) {
     justify-content: center;
   }
 
-  .carousel-indicators {
-    bottom: 1rem;
-    gap: 0.6rem;
-  }
 
-  .indicator {
-    width: 10px;
-    height: 10px;
-  }
 
   .carousel-nav {
     padding: 0 0.5rem;
@@ -1751,13 +1819,13 @@ section:not(.hero-carousel) {
   }
 
   .hero-carousel {
-    min-height: 80vh;
+    min-height: 85vh;
     padding-top: 75px;
   }
 
   .carousel-container {
-    height: calc(80vh - 70px);
-    min-height: 380px;
+    height: calc(85vh - 70px);
+    min-height: 420px;
   }
 
   /* Ensure content doesn't hide behind navbar */
@@ -1773,7 +1841,7 @@ section:not(.hero-carousel) {
   }
 
   .slide-content {
-    height: calc(80vh - 70px);
+    height: calc(85vh - 70px);
     padding: 2rem 1rem;
     display: flex;
     flex-direction: column;
@@ -1846,6 +1914,99 @@ section:not(.hero-carousel) {
 
   .investment-content {
     padding: 0 0.5rem;
+  }
+
+  .contact-info-details {
+    gap: 1rem;
+  }
+
+  .contact-info-item {
+    padding: 1.2rem;
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+
+  .contact-info-icon {
+    margin: 0 auto;
+  }
+
+  .contact-info-content h4 {
+    font-size: 1.1rem;
+    text-align: center;
+  }
+
+  .contact-info-content p {
+    font-size: 0.95rem;
+    text-align: center;
+  }
+
+  .contact-info-content span {
+    font-size: 0.9rem;
+    text-align: center;
+  }
+
+  .contact-cta .btn {
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
+/* WhatsApp Fixed Button */
+.whatsapp-float {
+  position: fixed;
+  bottom: 100px;
+  right: 25px;
+  width: 60px;
+  height: 60px;
+  background: #25d366;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 24px;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+  transition: all 0.3s ease;
+  z-index: 9999;
+  border: none;
+  outline: none;
+}
+
+.whatsapp-float:hover {
+  background: #128c7e;
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+  color: white;
+  text-decoration: none;
+}
+
+.whatsapp-float:focus {
+  outline: none;
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+}
+
+/* Responsive for WhatsApp button */
+@media (max-width: 768px) {
+  .whatsapp-float {
+    bottom: 90px;
+    right: 20px;
+    width: 55px;
+    height: 55px;
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 480px) {
+  .whatsapp-float {
+    bottom: 85px;
+    right: 15px;
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
   }
 }
 
