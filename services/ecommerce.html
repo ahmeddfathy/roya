@@ -12,38 +12,46 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
     />
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../main.css" />
     <link rel="stylesheet" href="services-shared.css" />
   </head>
   <body>
     <!-- Header -->
     <header class="header">
-      <nav class="navbar">
+      <nav class="navbar navbar-expand-lg navbar-light fixed-top">
         <div class="container">
-          <div class="nav-brand">
+          <a class="navbar-brand" href="../index.html">
             <img src="../logo.png" alt="رؤية" class="logo" loading="lazy" />
-          </div>
-          <ul class="nav-menu">
-            <li><a href="../index.html">الرئيسية</a></li>
-            <li><a href="../about.html">من نحن</a></li>
-            <li class="dropdown">
-              <a href="#services" class="dropdown-toggle active"
-                >خدماتنا <i class="fas fa-chevron-down"></i
-              ></a>
-              <ul class="dropdown-menu">
-                <li>
-                  <a href="web-development.html">تطوير المواقع الإلكترونية</a>
-                </li>
-                <li><a href="graphic.html">التصميم الجرافيكي</a></li>
-                <li><a href="ecommerce.html" class="active">المتاجر الإلكترونية</a></li>
-              </ul>
-            </li>
-            <li><a href="../contact.html">تواصل معنا</a></li>
-          </ul>
-          <div class="nav-toggle">
-            <span></span>
-            <span></span>
-            <span></span>
+          </a>
+          
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link" href="../index.html">الرئيسية</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="../about.html">من نحن</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  خدماتنا
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="web-development.html">تطوير المواقع الإلكترونية</a></li>
+                  <li><a class="dropdown-item" href="graphic.html">التصميم الجرافيكي</a></li>
+                  <li><a class="dropdown-item active" href="ecommerce.html">المتاجر الإلكترونية</a></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="../contact.html">تواصل معنا</a>
+              </li>
+            </ul>
           </div>
         </div>
       </nav>
@@ -66,8 +74,8 @@
             <span>خدماتنا</span>
           </div>
           <h1 class="hero-title">
-            <span class="highlight">المتاجر الإلكترونية</span>
-            <br />متطورة ومتكاملة
+            المتاجر الإلكترونية
+            <br /><span class="highlight" style="color: white">متطورة ومتكاملة</span>
           </h1>
           <p class="hero-description">
             نطور متاجر إلكترونية عصرية ومتكاملة باستخدام أحدث التقنيات العالمية 
@@ -409,17 +417,11 @@
       </div>
     </footer>
 
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
     <script>
-      // Mobile Navigation Toggle
-      const navToggle = document.querySelector(".nav-toggle");
-      const navMenu = document.querySelector(".nav-menu");
-
-      if (navToggle && navMenu) {
-        navToggle.addEventListener("click", () => {
-          navMenu.classList.toggle("active");
-          navToggle.classList.toggle("active");
-        });
-      }
+      // Services Page Specific Functionality
 
       // Smooth Scrolling for Anchor Links
       document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
@@ -435,17 +437,7 @@
         });
       });
 
-      // Header Background on Scroll
-      window.addEventListener("scroll", () => {
-        const header = document.querySelector(".header");
-        if (window.scrollY > 100) {
-          header.style.background = "rgba(255, 255, 255, 0.98)";
-          header.style.boxShadow = "0 2px 20px rgba(79, 195, 247, 0.1)";
-        } else {
-          header.style.background = "rgba(255, 255, 255, 0.95)";
-          header.style.boxShadow = "none";
-        }
-      });
+
 
       // Animate elements on scroll
       const observerOptions = {
@@ -529,9 +521,5 @@
 
       console.log("Marketing study page loaded successfully!");
     </script>
-
-
-
-    <script src="../navbar.js"></script>
   </body>
 </html>
